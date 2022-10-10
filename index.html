@@ -1,227 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text slider</title>
-    <!--google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">    
-    <style>
-        body{
-            margin: 0;
-            padding: 0;
-        }
-           .slider_wrapper{
-            --width:100vw;
-            height: var(--height);
-            --height:28vh;
-            width: var(--width);
-            background-image: url(https://company.liquid-themes.com/wp-content/uploads/2021/01/testimonials-bg@2x2@2x-scaled-1.jpg);
-            background-position: center center;
-            background-size: cover;
-            transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-            padding: 150px 0px 150px 0px;
-            position: relative;
-           }
-           .slider_wrapper .testiomonials_text{
-            position: absolute;
-            left: calc(var(--width) * .17);
-            top: calc(var(--height) * .39);
-            z-index: 1;
-            font-size: 40px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight:bold;
-            color: #FFCD28;
-           }
-           .overlay{
-            background-color: transparent;
-            background-image: linear-gradient(115deg, #184341 48%, #F2295B00 82%);
-            opacity: 1;
-            transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            position: absolute;
-           }
-           /* external css: flickity.css */
-.flickity-enabled.is-draggable{
-    width: 62%;
-    margin-left: 17%;
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Testiomonials</title>
+      <!--google font-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+      <style>
+         body{
+         margin: 0;
+         padding: 0;
+         }
+         .slider_wrapper{
+         --width:100vw;
+         height: var(--height);
+         --height:28vh;
+         width: var(--width);
+         background-image: url(https://company.liquid-themes.com/wp-content/uploads/2021/01/testimonials-bg@2x2@2x-scaled-1.jpg);
+         background-position: center center;
+         background-size: cover;
+         transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+         padding: 150px 0px 150px 0px;
+         position: relative;
+         }
+         .slider_wrapper .testiomonials_text{
+         position: absolute;
+         left: calc(var(--width) * .17);
+         top: calc(var(--height) * .39);
+         z-index: 1;
+         font-size: 40px;
+         font-family: 'Montserrat', sans-serif;
+         font-weight:bold;
+         color: #FFCD28;
+         }
+         .overlay{
+         background-color: transparent;
+         background-image: linear-gradient(115deg, #184341 48%, #F2295B00 82%);
+         opacity: 1;
+         transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+         height: 100%;
+         width: 100%;
+         top: 0;
+         left: 0;
+         position: absolute;
+         }
+         .qutoes__{
+          position: absolute;
+          left: calc(var(--width) * .12);
+          top: calc(var(--height) * .2);
+         }
+         /* external css: flickity.css */
+         .flickity-enabled.is-draggable{
+         width: 62%;
+         margin-left: 17%;
+         }
+         .carousel {
+         /* background: #FAFAFA; */
+         margin: 0 60px; /* space for prev/next buttons */
+         }
+         .carousel-cell {
+         width: 100%;
+         height: 290px;
+         margin-right: 10px;
+         /* background: #8C8; */
+         border-radius: 5px;
+         counter-increment: gallery-cell;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         }
+         .carousel-cell .info_{
+         font-family: 'Source Sans Pro', sans-serif;
+         font-size: 25px;
+         line-height: 39px;
+         }
+         .carousel-cell .founder_{
+         display: block;
+         font-family: 'Montserrat', sans-serif;
+         font-weight: bold;
+         font-size: 18px;
+         line-height: 25px;
+         color: #6a8583;
+         margin-top: 12px;
+         }
+         /* smaller, dark, rounded square */
+         .flickity-prev-next-button {
+         width: 30px;
+         height: 30px;
+         border-radius: 5px;
+         background: #333;
+         }
+         .flickity-button:hover{
+         background: black;
+         }
+         /* arrow color */
+         .flickity-prev-next-button .arrow {
+         fill: white;
+         }
+         .flickity-prev-next-button.no-svg {
+         color: white;
+         }
+         /* position outside */
+         .flickity-prev-next-button.previous {
+         left: 0;
+         top: calc(var(--height) *.98);
+         }
+         .flickity-prev-next-button.next {
+         left: 47px;
+         top: calc(var(--height) *.98);
+         }
+         .flickity-page-dots{
+         display: none;
+         }
+         @media only screen and (max-width: 1219px) {
+         .slider_wrapper .testiomonials_text{
+         top: calc(var(--height) * .65);
+         font-size: 30px;
+         }
+         .qutoes__ {
+          
+          top: calc(var(--height) * .6);
+          width: 2rem;
 }
-.carousel {
-  /* background: #FAFAFA; */
-  margin: 0 60px; /* space for prev/next buttons */
-}
+         .carousel-cell .info_{
+         font-size: 20px !important;
+         line-height: 26px !important;
+         }
+         .carousel-cell .founder_{
+         font-size: 15px;
+         }
+         .flickity-prev-next-button .flickity-button-icon{
+         width: 46%;
+         height: 46%;
+         }
+         .flickity-prev-next-button{
+         width: 28px;
+         height: 28px;
+         }
+         }
+         @media only screen and (max-width: 600px){
+         .slider_wrapper .testiomonials_text {
+         top: calc(var(--height) * .72);
+         font-size: 24px;
+         }
+         .carousel-cell .info_ {
+         font-size: 15px !important;
+         line-height: 22px !important;
+         }
+         .carousel-cell .founder_ {
+         font-size: 13px;
+         }
+         .flickity-prev-next-button .flickity-button-icon {
+         position: absolute;
+         left: 29%;
+         top: 26%;
+         width: 60%;
+         height: 60%;
+         }
+         .flickity-prev-next-button .flickity-button-icon{
+         width: 36%;
+         height: 36%;
+         }
+         .flickity-prev-next-button{
+         width: 23px;
+         height: 23px;
+         }
+         }
+         @media only screen and (max-width: 392px){
+         .slider_wrapper{
+         --height:10vh;
+         }
+         .carousel-cell{
+         display: initial;
+         }
+         .flickity-prev-next-button.previous {
+         top: calc(var(--height) * 2.1);
+         }
+         .flickity-prev-next-button.next {
+         top: calc(var(--height) * 2.1);
+         }
+         }
 
-.carousel-cell {
-  width: 100%;
-  height: 290px;
-  margin-right: 10px;
-  /* background: #8C8; */
-  border-radius: 5px;
-  counter-increment: gallery-cell;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.carousel-cell .info_{
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 25px;
-    line-height: 39px;
-}
-.carousel-cell .founder_{
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-    color: #6a8583;
-    margin-top: 12px;
-
-}
-
-/* smaller, dark, rounded square */
-.flickity-prev-next-button {
-  width: 30px;
-  height: 30px;
-  border-radius: 5px;
-  background: #333;
-}
-.flickity-button:hover{
-  background: black;
-}
-/* arrow color */
-.flickity-prev-next-button .arrow {
-  fill: white;
-}
-.flickity-prev-next-button.no-svg {
-  color: white;
-}
-/* position outside */
-.flickity-prev-next-button.previous {
-  left: 0;
-  top: calc(var(--height) *.98);
-}
-.flickity-prev-next-button.next {
-  left: 47px;
-  top: calc(var(--height) *.98);
-}
-.flickity-page-dots{
-  display: none;
-}
-@media only screen and (max-width: 1219px) {
-  .slider_wrapper .testiomonials_text{
-    top: calc(var(--height) * .65);
-    font-size: 30px;
-  }
-  .carousel-cell .info_{
-    font-size: 20px !important;
-    line-height: 26px !important;
-}
-.carousel-cell .founder_{
-  font-size: 15px;
-}
-.flickity-prev-next-button .flickity-button-icon{
-  width: 46%;
-  height: 46%;
-}
-.flickity-prev-next-button{
-  width: 28px;
-  height: 28px;
-}
-  
-}
-@media only screen and (max-width: 600px){
-  .slider_wrapper .testiomonials_text {
-    top: calc(var(--height) * .72);
-    font-size: 24px;
-}
-.carousel-cell .info_ {
-    font-size: 15px !important;
-    line-height: 22px !important;
-}
-.carousel-cell .founder_ {
-    font-size: 13px;
-}
-.flickity-prev-next-button .flickity-button-icon {
-    position: absolute;
-    left: 29%;
-    top: 26%;
-    width: 60%;
-    height: 60%;
-}
-.flickity-prev-next-button .flickity-button-icon{
-  width: 36%;
-  height: 36%;
-}
-.flickity-prev-next-button{
-  width: 23px;
-  height: 23px;
-}
-
-}
-
-@media only screen and (max-width: 392px){
-  
-  .slider_wrapper{
-    --height:10vh;
-  }
-  .carousel-cell{
-    display: initial;
-  }
-  .flickity-prev-next-button.previous {
-  top: calc(var(--height) * 2.1);
-}
-  .flickity-prev-next-button.next {
-    top: calc(var(--height) * 2.1);
-}
-}
-
-
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-</head>
-<body>
-     <div class="slider_wrapper">
-        <div class="overlay">
-
-        </div>
-        <h2 class="testiomonials_text">testimonials</h2>
-        <div class="carousel" data-flickity>
-           
-            <div class="carousel-cell">
-                <div>
-                    <span class="info_" style="color: #ffffff;font-size:25px;line-height:39px">“You made it so simple. My site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save.”</span><br>
-                <span class="founder_">Liquid, Founder</span>
-                </div>
-            </div>
+      </style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <div class="slider_wrapper">
+         <div class="overlay">
+         </div>
+         <h2 class="testiomonials_text">testimonials</h2>
+         <div class="carousel" data-flickity>
             <div class="carousel-cell">
                <div>
-                <span class="info_" style="color: #ffffff;font-size:25px;line-height:39px">“You made it so simple. My site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save.”</span><br>
-                <span class="founder_">Liquid, Founder</span>
+                  <span class="info_" style="color: #ffffff;font-size:25px;line-height:39px">“You made it so simple. My site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save.”</span><br>
+                  <span class="founder_">Liquid, Founder</span>
                </div>
             </div>
             <div class="carousel-cell">
                <div>
-                <span class="info_" style="color: #ffffff;font-size:25px;line-height:39px">“You made it so simple. My site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save.”</span>
-                <span class="founder_">Liquid, Founder</span>
+                  <span class="info_" style="color: #ffffff;font-size:25px;line-height:39px">“You made it so simple. My site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save.”</span><br>
+                  <span class="founder_">Liquid, Founder</span>
                </div>
             </div>
-        </div>
-     </div>
-     <!-- JavaScript -->
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<script>
-  $('.carousel').flickity({
-  arrowShape: 'M 0,50 L 60,00 L 50,30 L 80,30 L 80,70 L 50,70 L 60,100 Z'
-});
-</script>
-</body>
+            <div class="carousel-cell">
+               <div>
+                  <span class="info_" style="color: #ffffff;font-size:25px;line-height:39px">“You made it so simple. My site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save.”</span>
+                  <span class="founder_">Liquid, Founder</span>
+               </div>
+            </div>
+         </div>
+         <div class="quotes_img">
+          <img class="qutoes__" src="https://company.liquid-themes.com/wp-content/uploads/2019/12/quote.svg" alt="">
+         </div>
+      </div>
+      <!-- JavaScript -->
+      <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+      <script>
+         $('.carousel').flickity({
+         arrowShape: 'M15,5l-1.41,1.41L18.17,11H2V13h16.17l-4.59,4.59L15,19l7-7L15,5z'
+         });
+      </script>
+   </body>
 </html>
